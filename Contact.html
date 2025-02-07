@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div>
+
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-dark sticky-top" id="navbarSection">
+            <div class="container-fluid">
+                <img src="F1-logo.png" class="rounded" alt="Cap Image" width="40px" height="40px" style="margin-right: 8px; margin-left: 75px;">
+                <a class="navbar-brand fs-3" href="#" style="color: white; padding-left: 5px;"></a>
+                <div class="collapse navbar-collapse" id="navBarSection">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item pe-3">
+                            <a class="nav-link active" aria-current="page" href="index.html" target="_blank" style="color: white;"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="AboutUs.html" target="_blank" style="color: white;"><strong>About Us</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="index.html#Merchandize" target="_blank" style="color: white;"><strong>Merchandize</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="SportsWear.html" target="_blank" style="color: white;"><strong>Sports Wear</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="#" style="color: white;"><strong>Contact Us</strong></a>
+                        </li>
+                    </ul>
+                    <!-- Cart Icon -->
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-outline-light position-relative" data-bs-toggle="offcanvas" href="#cartOffcanvas" role="button" aria-controls="cartOffcanvas">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Cart</strong>
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="addItems">
+                            0 <!-- Replace with dynamic count -->
+                            <span class="visually-hidden">items in cart</span>
+                          </span>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Register.html" role="button">
+                          <i class="bi bi-cart"></i> 
+                          <strong>Register</strong>
+                          </span>
+                        </a>
+                    </div> 
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Login.html" role="button">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Login</strong>
+                          </span>
+                        </a>
+                    </div>  
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Register.html" role="button">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Sign Out</strong>
+                          </span>
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </nav>
+        <!-- Cart offCanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+            <div class="offcanvas-header">
+              <h5 id="cartOffcanvasLabel">Your Cart</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row fw-bold m-2">
+                    <div class="col-8">#Product ID</div>
+                    <div class="col-4 text-end">Price</div>
+                </div>
+              <ul class="list-group" id="cart">
+                
+              </ul>
+              <hr>
+              <div class="d-flex justify-content-between">
+                <strong>Total:</strong>
+                <span id="total"> </span>
+              </div>
+              <form action="/checkout" method="get">
+                <button class="btn btn-danger w-100 mt-3">Checkout</button>
+              </form>
+              <button class="btn btn-danger w-100 mt-3" onclick="resetCart()">Reset</button>
+            </div>
+          </div>
+
+        <!-- Product Enquiry -->
+        <div class="row text-white bg-dark pb-3">
+            <div class="col-md-6">
+                <img src="CheckCar.webp" alt="Car Image" class="container-fluid" style="height: 100%;">
+            </div>
+            <div class="col-md-6">
+                <p class="fs-1">Product enquiry? Write to us!</p>
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3">
+                      <label for="Name" class="form-label">Your Name</label>
+                      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+                      <div id="eName">
+                        
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                      <label for="exampleInputEmail" class="form-label">Email</label>
+                      <input type="email" class="form-control" id="exampleInputEmail" required>
+                      <div id="eEmail">
+                        
+                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Subject" class="form-label">Subject</label>
+                        <input type="text" class="form-control" id="subject" aria-describedby="subject" required>
+                        <div id="eSubject">
+                            
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Subject" class="form-label">Your message</label>
+                        <textarea class="form-control" name="Comments" id="comments" rows="4" required></textarea>
+                        <div id="enterEnquiry">
+
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-danger" onclick=submitForm1()>Submit</button>
+                    <button type="reset" class="btn btn-danger ms-2" onclick=resetForm1()>Reset</button>
+                </form>
+            </div>
+        </div> 
+
+        <!-- Contact Us -->
+        <div class="row bg-dark text-white">
+            <div class="col-md-5 offset-md-1 pb-4">
+                <br>
+                <h4>General enquiry? Write to us!</h4>
+                <br>
+                <form class="needs-validation" novalidate>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter your name*">
+                      <div id="enterName">
+                        
+                      </div>
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <input type="tel" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp" placeholder="Phone Number*" required>
+                        <div id="enterPhone">
+                            
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <input type="email" class="form-control" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Email Id address*" required>
+                        <div id="enterEmail">
+                            
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mb-3">
+                        <textarea class="form-control" name="Comments" id="comments" placeholder="Leave your comment here" required></textarea>
+                        <div id="enterComments">
+                            
+                        </div>
+                    </div>  
+                    <button type="submit" class="btn btn-danger" onclick=submitForm2()>Submit</button>
+                    <button type="reset" class="btn btn-danger ms-2" onclick=resetForm2()>Reset</button>
+                  </form>
+            </div>
+            <div class="col-md-5 offset-md-1">
+                <br>
+                <h3>Contact Us</h3>
+                <strong>Email</strong> : info@formulaonecars.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Phone</strong>: (+61) 0402620144 <br>
+                <strong>Address</strong> : 23 Kilsyth Avenue Burwood VIC, 3125
+                <p><strong>Working Hours</strong> : 8 AM AEDT to 8 PM AEDT</p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3150.66167992704!2d145.11582017584843!3d-37.84480547196768!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6408a58475fd9%3A0x8017522027145fed!2s23%20Kilsyth%20Ave%2C%20Burwood%20VIC%203125!5e0!3m2!1sen!2sau!4v1733982726671!5m2!1sen!2sau" width="500" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div> 
+    </div>
+
+    <footer class="text-center text-white pt-2 pb-3" style="background-color: darkred;">
+        You have arrived at the end of this page. We hope that you buy your favorite stuffs from us!
+    </footer>
+
+    <script>
+            (() => {
+            'use strict'
+
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            const forms = document.querySelectorAll('.needs-validation')
+
+            // Loop over them and prevent submission
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+                }, false)
+            })
+            })()
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

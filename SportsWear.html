@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportsWear</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .card{
+            border: none;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <div>
+        
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-dark sticky-top" id="navbarSection">
+            <div class="container-fluid">
+                <img src="F1-logo.png" class="rounded" alt="Cap Image" width="40px" height="40px" style="margin-right: 8px; margin-left: 75px;">
+                <a class="navbar-brand fs-3" href="#" style="color: white; padding-left: 5px;"></a>
+                <div class="collapse navbar-collapse" id="navBarSection">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item pe-3">
+                            <a class="nav-link active" aria-current="page" href="index.html" target="_blank" style="color: white;"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="AboutUs.html" target="_blank" style="color: white;"><strong>About Us</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="index.html#Merchandize" target="_blank" style="color: white;"><strong>Merchandize</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="SportsWear.html" style="color: white;"><strong>Sports Wear</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="Contact.html" target="_blank" style="color: white;"><strong>Contact Us</strong></a>
+                        </li>
+                    </ul>
+                    <!-- Cart Icon -->
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-outline-light position-relative" data-bs-toggle="offcanvas" href="#cartOffcanvas" role="button" aria-controls="cartOffcanvas">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Cart</strong>
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="addItems">
+                            0 <!-- Replace with dynamic count -->
+                            <span class="visually-hidden">items in cart</span>
+                          </span>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Register.html" role="button">
+                          <i class="bi bi-cart"></i> 
+                          <strong>Register</strong>
+                          </span>
+                        </a>
+                    </div> 
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Login.html" role="button">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Login</strong>
+                          </span>
+                        </a>
+                    </div>   
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Register.html" role="button">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Sign Out</strong>
+                          </span>
+                        </a>
+                    </div>   
+                </div>
+            </div>
+        </nav> 
+        <!-- Cart offCanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+            <div class="offcanvas-header">
+              <h5 id="cartOffcanvasLabel">Your Cart</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row fw-bold m-2">
+                    <div class="col-8">#Product ID</div>
+                    <div class="col-4 text-end">Price</div>
+                </div>
+              <ul class="list-group" id="cart">
+                
+              </ul>
+              <hr>
+              <div class="d-flex justify-content-between">
+                <strong>Total:</strong>
+                <span id="total"> </span>
+              </div>
+              <form action="/checkout" method="get">
+                <button class="btn btn-danger w-100 mt-3">Checkout</button>
+              </form>
+              <button class="btn btn-danger w-100 mt-3" onclick="resetCart()">Reset</button>
+            </div>
+          </div>
+
+        <!-- Outer Div for Cards -->
+        <div class="row text-center bg-dark-subtle">
+
+            <!-- Card1 -->
+            <div class="card col-sm-4" style="width: 25%; margin-left: 12.5%;">
+                <img src="/sportswearImages/Helmet1.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Alpine</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" onclick="addToCart('#867837',10)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample1">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card2 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Helmet2.avif" class="card-img-top" alt="Image Not Loading">
+                <div class="card-body">
+                    <h5 class="card-title">Alphatauri</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2" onclick="addToCart('#98273',20)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample2">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card3 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Helmet3.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Singha</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3" onclick="addToCart('#736487',15)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample3">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card4 -->
+            <div class="card col-sm-4" style="width: 25%; margin-left: 12.5%;">
+                <img src="/sportswearImages/Helmet4.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Norris</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4" onclick="addToCart('#FG78468',50)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample4">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card5 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Helmet5.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">LeClerc</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample5" role="button" aria-expanded="false" aria-controls="collapseExample5" onclick="addToCart('#983274',56)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample5">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card6 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Helmet6.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Kaspersky</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample6" role="button" aria-expanded="false" aria-controls="collapseExample6" onclick="addToCart('#FG3748',10)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample6">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card7 -->
+            <div class="card col-sm-4" style="width: 25%; margin-left: 12.5%;">
+                <img src="/sportswearImages/Tshirt1.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Haas</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample7" role="button" aria-expanded="false" aria-controls="collapseExample7" onclick="addToCart('#KDL4885',90)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample7">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card8 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Tshirt2.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Red Bull</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample8" role="button" aria-expanded="false" aria-controls="collapseExample8" onclick="addToCart('#354FG83',35)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample8">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card9 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Tshirt3.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">AMG Petronas</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample9" role="button" aria-expanded="false" aria-controls="collapseExample9" onclick="addToCart('#WI38588',18)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample9">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card10 -->
+            <div class="card col-sm-4" style="width: 25%; margin-left: 12.5%;">
+                <img src="/sportswearImages/Tshirt4.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Mercedes URS</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample10" role="button" aria-expanded="false" aria-controls="collapseExample10" onclick="addToCart('#MC3885',10)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample10">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card11 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Tshirt5.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">McLaren</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample11" role="button" aria-expanded="false" aria-controls="collapseExample11" onclick="addToCart('#WO39884',20)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample11">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card12 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Tshirt6.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Scuderia</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample12" role="button" aria-expanded="false" aria-controls="collapseExample12" onclick="addToCart('#88JDH0',17)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample12">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card13 -->
+            <div class="card col-sm-4" style="width: 25%; margin-left: 12.5%;">
+                <img src="/sportswearImages/Gear1.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Hush Puppies</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample13" role="button" aria-expanded="false" aria-controls="collapseExample13" onclick="addToCart('#867834',40)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample13">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card14 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Gear2.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Raikonnen</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample14" role="button" aria-expanded="false" aria-controls="collapseExample14" onclick="addToCart('#7828946',10)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample14">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card15 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Gear3.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Williams</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample15" role="button" aria-expanded="false" aria-controls="collapseExample15" onclick="addToCart('#002884',34)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample15">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card16 -->
+            <div class="card col-sm-4" style="width: 25%; margin-left: 12.5%;">
+                <img src="/sportswearImages/Gloves1.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">PUMA AMG</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample16" role="button" aria-expanded="false" aria-controls="collapseExample16" onclick="addToCart('#002884',10)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample16">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card17 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Gear2.avif" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">KIMI</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample17" role="button" aria-expanded="false" aria-controls="collapseExample17" onclick="addToCart('#002874',60)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample17">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card18 -->
+            <div class="card col-sm-4" style="width: 25%">
+                <img src="/sportswearImages/Gloves3.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Marlboro</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapseExample18" role="button" aria-expanded="false" aria-controls="collapseExample18" onclick="addToCart('#QE4995A',19)">Add to Cart</a>
+                    <div class="collapse" id="collapseExample18">
+                        <div class="card card-body">
+                          Item has been added to Cart.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <!-- Closing of Outer div for cards     -->
+        </div>
+
+    </div>
+
+    <footer class="text-center text-white pt-2 pb-3 bg-dark">
+        You have arrived at the end of this page. We hope that you buy your favorite stuffs from us! <br>
+    </footer>
+
+    <!-- Implementing the Add to Cart Functionality -->    
+    <script>
+        function myFunction() {
+            alert("Item has been added to Cart");
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

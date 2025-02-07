@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-dark sticky-top" id="navbarSection">
+            <div class="container-fluid">
+                <img src="F1-logo.png" class="rounded" alt="Cap Image" width="40px" height="40px" style="margin-right: 8px; margin-left: 75px;">
+                <a class="navbar-brand fs-3" href="#" style="color: white; padding-left: 5px;"></a>
+                <div class="collapse navbar-collapse" id="navBarSection">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item pe-3">
+                            <a class="nav-link active" aria-current="page" href="#Intro" style="color: white;"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="AboutUs.html" target="_blank" style="color: white;"><strong>About Us</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="#Merchandize" style="color: white;"><strong>Merchandize</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="SportsWear.html" target="_blank" style="color: white;"><strong>Sports Wear</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="Contact.html" target="_blank" style="color: white;"><strong>Contact Us</strong></a>
+                        </li>
+                    </ul> 
+                    <!-- Cart Icon -->
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-outline-light position-relative" data-bs-toggle="offcanvas" href="#cartOffcanvas" role="button" aria-controls="cartOffcanvas">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Cart</strong>
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="addItems">
+                            0 <!-- Replace with dynamic count -->
+                            <span class="visually-hidden">items in cart</span>
+                          </span>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Register.html" role="button">
+                          <strong>Register</strong>
+                          </span>
+                        </a>
+                    </div> 
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Login.html" role="button">
+                          <strong>Login</strong>
+                          </span>
+                        </a>
+                    </div>    
+                </div>
+            </div>
+        </nav>
+        <!-- Cart offCanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+            <div class="offcanvas-header">
+              <h5 id="cartOffcanvasLabel">Your Cart</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row fw-bold m-2">
+                    <div class="col-8">#Product ID</div>
+                    <div class="col-4 text-end">Price</div>
+                </div>
+              <ul class="list-group" id="cart">
+                
+              </ul>
+              <hr>
+              <div class="d-flex justify-content-between">
+                <strong>Total:</strong>
+                <span id="total"> </span>
+              </div>
+              <form action="/checkout" method="get">
+                <button class="btn btn-danger w-100 mt-3">Checkout</button>
+              </form>
+              <button class="btn btn-danger w-100 mt-3" onclick="resetCart()">Reset</button>
+            </div>
+          </div>
+
+        <!-- Jumbotron -->
+        <div class="jumbotron bg-danger p-5 text-center text-white">
+            <h1>The Frenetic Way</h1>
+            <p class="lead">The one-stop shop for the high-octane sport of <strong>F1</strong>, specialising in distributing the latest and greatest <strong>F1</strong> and <strong>Grand Prix</strong> merchandise.</p>
+        </div> 
+
+        <!-- Cards -->
+        <div class="fs-4 bg-danger-subtle">
+            <h4 class="text-center">Get your favorite driver's signed shoes, t-shirts and caps.</h4>
+            <div class="row">
+                <img src="Lewis.jpeg" alt="" class="col">
+                <img src="Carlos.jpeg" alt="" class="col">
+                <img src="Max.jpeg" alt="" class="col">
+            </div>
+        </div> 
+
+        <!-- Companies -->
+        <div class="mb-3 row bg-danger-subtle text-center" style="padding-top: 20px;" id="Merchandize">
+            <div class="bg-dark p-3">
+                <h5 class="text-center text-white">Below are the Top Companies for which the sportswear is in great demand</h5>
+            </div>
+
+            <!-- Cards -->
+            <div class="col-sm-12">
+                <div class="row btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                    <!-- Card1 -->
+                    <div class="col-sm-4 pb-3 pt-2">
+                        <div class="card">
+                            <img src="Mercedes.jpeg" class="card-img-top" alt="Mercedes">
+                            <div class="card-body">
+                                <h5 class="card-title">Mercedes Petronas</h5>
+                                <p class="card-text">The nine times Formula One World Drivers' Championship.</p>
+                                <a href="Mercedes.html" target="_blank" class="btn btn-danger btn-lg">Go to Mercedes' Merchandise</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card2 -->
+                    <div class="col-sm-4 pb-3 pt-2">
+                        <div class="card">
+                            <img src="Ferrari.jpeg" class="card-img-top" alt="Ferrari">
+                            <div class="card-body">
+                                <h5 class="card-title">Scuderia Ferrari</h5>
+                                <p class="card-text">The thirty times Formula One World Drivers' Championship.</p>
+                                <a href="Ferrari.html" target="_blank" class="btn btn-danger btn-lg">Go to Ferrari's Merchandise</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card3 -->
+                    <div class="col-sm-4 pb-3 pt-2">
+                        <div class="card">
+                            <img src="Red Bull.jpeg" class="card-img-top" alt="Red Bull">
+                            <div class="card-body">
+                                <h5 class="card-title">Red Bull</h5>
+                                <p class="card-text">The six times Formula One World Drivers' Championship.</p>
+                                <a href="RedBull.html" target="_blank" class="btn btn-danger btn-lg">Go to Red Bull's Merchandise</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card4 -->
+                    <div class="col-sm-4 pb-3">
+                        <div class="card">
+                            <img src="Aston Martin.jpeg" class="card-img-top" alt="Aston Martin">
+                            <div class="card-body">
+                                <h5 class="card-title">Aston Martin</h5>
+                                <a href="#" class="btn btn-danger btn-lg">Coming Soon &#128512;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card5 -->
+                    <div class="col-sm-4 pb-3">
+                        <div class="card">
+                            <img src="McLaren.jpeg" class="card-img-top" alt="McLaren">
+                            <div class="card-body">
+                                <h5 class="card-title">McLaren</h5>
+                                <a href="#" class="btn btn-danger btn-lg">Coming Soon &#128512;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card6 -->
+                    <div class="col-sm-4 pb-3">
+                        <div class="card">
+                            <img src="Haas.jpeg" class="card-img-top" alt="Haas" style="height: 260px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Haas</h5>
+                                <a href="#" class="btn btn-danger btn-lg">Coming Soon &#128512;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card7 -->
+                    <div class="col-sm-4 pb-3">
+                        <div class="card">
+                            <img src="Renault.jpeg" class="card-img-top" alt="Renault" style="height: 315px;">
+                            <div class="card-body">
+                                <h5 class="card-title">Renault</h5>
+                                <a href="#" class="btn btn-danger btn-lg">Coming Soon &#128512;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card8 -->
+                    <div class="col-sm-4 pb-3">
+                        <div class="card">
+                            <img src="Williams.jpeg" class="card-img-top" alt="Williams">
+                            <div class="card-body">
+                                <h5 class="card-title">Williams</h5>
+                                <a href="#" class="btn btn-danger btn-lg">Coming Soon &#128512;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card9 -->
+                    <div class="col-sm-4 pb-3">
+                        <div class="card">
+                            <img src="Alpine.jpeg" class="card-img-top" alt="Cap3">
+                            <div class="card-body">
+                                <h5 class="card-title">Alpine</h5>
+                                <a href="#" class="btn btn-danger btn-lg">Coming Soon &#128512;</a>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+        </div>  
+    </div>
+
+    <footer class="bg-danger-subtle text-center pt-2 pb-3">
+        <h5>You have arrived at the end of this page. We hope that you buy your favorite stuffs from us!</h5>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

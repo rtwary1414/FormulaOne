@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercedes Merchandize</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        body{
+            background-color: black;
+        }
+    </style>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg sticky-top" id="navbarSection" style="background-color: darkred;">
+            <div class="container-fluid">
+                <img src="F1-logo.png" class="rounded" alt="Cap Image" width="40px" height="40px" style="margin-right: 8px; margin-left: 75px;">
+                <a class="navbar-brand fs-3" href="#" style="color: white; padding-left: 5px;"></a>
+                <div class="collapse navbar-collapse" id="navBarSection">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item pe-3">
+                            <a class="nav-link active" aria-current="page" href="index.html" target="_blank" style="color: white;"><strong>Home</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="AboutUs.html" target="_blank" style="color: white;"><strong>About Us</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="index.html#Merchandize" target="_blank" style="color: white;"><strong>Merchandize</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="SportsWear.html" target="_blank" style="color: white;"><strong>Sports Wear</strong></a>
+                        </li>
+                        <li class="nav-item pe-3">
+                            <a class="nav-link" href="Contact.html" target="_blank" style="color: white;"><strong>Contact Us</strong></a>
+                        </li>
+                    </ul>
+                    <!-- Cart Icon -->
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-outline-light position-relative" data-bs-toggle="offcanvas" href="#cartOffcanvas" role="button" aria-controls="cartOffcanvas">
+                          <i class="bi bi-cart"></i> <!-- Bootstrap Cart Icon -->
+                          <strong>Cart</strong>
+                          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="addItems">
+                            0 <!-- Replace with dynamic count -->
+                            <span class="visually-hidden">items in cart</span>
+                          </span>
+                        </a>
+                    </div>
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Register.html" role="button">
+                          <i class="bi bi-cart"></i> 
+                          <strong>Register</strong>
+                          </span>
+                        </a>
+                    </div> 
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="Login.html" role="button">
+                          <strong>Login</strong>
+                          </span>
+                        </a>
+                    </div> 
+                    <div class="d-flex align-items-center bg-danger me-3">
+                        <a class="btn btn-danger btn-outline-light position-relative" href="register.html" role="button">
+                          <strong>Sign Out</strong>
+                          </span>
+                        </a>
+                    </div>     
+                </div>
+            </div>
+        </nav> 
+        <!-- Cart offCanvas -->
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+            <div class="offcanvas-header">
+              <h5 id="cartOffcanvasLabel">Your Cart</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="row fw-bold m-2">
+                    <div class="col-8">#Product ID</div>
+                    <div class="col-4 text-end">Price</div>
+                </div>
+              <ul class="list-group" id="cart">
+                
+              </ul>
+              <hr>
+              <div class="d-flex justify-content-between">
+                <strong>Total:</strong>
+                <span id="total"> </span>
+              </div>
+              <form action="/checkout" method="get">
+                <button class="btn btn-danger w-100 mt-3">Checkout</button>
+              </form>
+              <button class="btn btn-danger w-100 mt-3" onclick="resetCart()">Reset</button>
+            </div>
+          </div>
+
+        <!-- Heading -->
+        <div class="bg-dark text-center text-white p-2">
+            <h1>Welcome to the Mercedez Merchandize</h1>
+        </div>
+
+        <!-- T-shirts -->
+        <div class="col-sm-12">
+            <div class="row btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <!-- Card1 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Tshirt1.webp" class="card-img-top" alt="Mercedes">
+                        <div class="card-body">
+                            <h5 class="card-title">Men's Lewis Hamilton Black Tee</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#112A345',50)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card2 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Tshirt2.webp" class="card-img-top" alt="Ferrari">
+                        <div class="card-body">
+                            <h5 class="card-title">Men's Lewis Hamilton White Tee</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#112B23',10)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card3 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Tshirt3.webp" class="card-img-top" alt="Red Bull">
+                        <div class="card-body">
+                            <h5 class="card-title">Mercedes Special Edition Tshirts</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#459G223',20)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card4 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Tshift4.webp" class="card-img-top" alt="Aston Martin">
+                        <div class="card-body">
+                            <h5 class="card-title">Men's Lewis Hamilton Neon Tee</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#JH56628',34)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card5 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Tshirt5.webp" class="card-img-top" alt="McLaren">
+                        <div class="card-body">
+                            <h5 class="card-title">Men's Lewis Hamilton Sky Blue Hoodie</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#PHG44328',78)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card6 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Tshirt6.webp" class="card-img-top" alt="Haas">
+                        <div class="card-body">
+                            <h5 class="card-title">Men's Lewis Hamilton Black Hoodie</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#112G5456',98)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Heading -->
+        <div class="bg-dark p-2 text-center text-white">
+            <h1>Below are the stylish caps from the Merc Petronas</h1>
+        </div>
+
+        <!-- Caps -->
+        <div class="col-sm-12">
+            <div class="row btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <!-- Card1 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Cap1.avif" class="card-img-top" alt="Mercedes">
+                        <div class="card-body">
+                            <h6 style="color: red;">Reduced: AUD $49.00</h6>
+                            <h6><strike>Regular AUD $63.70</strike></h6>
+                            <h6 class="card-title">Mercedes AMG Petronas F1 2024 Lewis Hamilton Cap - Black</h6>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#8822749',66)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card2 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Cap2.avif" class="card-img-top" alt="Ferrari">
+                        <div class="card-body">
+                            <h6 style="color: red;">AUD $37.70 with code</h6>
+                            <h6><strike>Regular AUD $58.00</strike></h6>
+                            <h6 class="card-title">Mercedes AMG Petronas F1 Lewis Hamilton 2024 Special Edition Austin Cap</h6>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#00287577',15)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card3 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Cap3.avif" class="card-img-top" alt="Red Bull">
+                        <div class="card-body">
+                            <h6 style="color: red;">AUD $39.00 with code</h6>
+                            <h6><strike>Regular AUD $58.00</strike></h6>
+                            <h6 class="card-title">Mercedes AMG Petronas F1 Lewis Hamilton 2024 Special Edition Cap - Silverstone</h6>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#0097757D',17)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card4 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Cap4.avif" class="card-img-top" alt="Aston Martin">
+                        <div class="card-body">
+                            <h6 style="color: red;">AUD $37.70 with code</h6>
+                            <h6><strike>Regular AUD $58.00</strike></h6>
+                            <h6 class="card-title">Mercedes AMG Petronas F1 Lewis Hamilton 2024 Special Edition Cap</h6>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#1234567',87)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card5 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Cap5.avif" class="card-img-top" alt="McLaren">
+                        <div class="card-body">
+                            <h6 style="color: red;">AUD $27.95 with code</h6>
+                            <h6><strike>Regular AUD $43.00</strike></h6>
+                            <h6 class="card-title">Mercedes AMG Petronas F1 Lewis Hamilton Bucket Hat</h6>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#00477583',35)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card6 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Cap6.avif" class="card-img-top" alt="Haas">
+                        <div class="card-body">
+                            <h6 style="color: red;">Reduced: AUD $39.00 with code</h6>
+                            <h6><strike>Regular AUD $44.00</strike></h6>
+                            <h6 class="card-title">Mercedes AMG Petronas George Russell 2023 Special Edition Cap - Silverstone</h6>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#JJDG2485',10)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shoes -->
+
+        <div class="bg-dark p-2 text-center text-white">
+            <h1>Below are the Mercedes Formula 1 stylish shoes</h1>
+        </div>
+
+        <!-- Caps -->
+        <div class="col-sm-12">
+            <div class="row btn-group" role="group" aria-label="Basic checkbox toggle button group">
+                <!-- Card1 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Shoe1.jpeg" class="card-img-top" alt="Mercedes">
+                        <div class="card-body">
+                            <h5 class="card-title">Mercedes AMG Petronas F1 2024 Lewis Hamilton - Black Shoes</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#003757829',15)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card2 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Shoe2.webp" class="card-img-top" alt="Ferrari" style="height: 380px;">
+                        <div class="card-body">
+                            <h5 class="card-title">Mercedes AMG Petronas F1 Lewis Hamilton 2024 Special Edition White Shoes</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#64885VW3',10)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card3 -->
+                <div class="col-sm-4 pb-3 pt-2 text-center">
+                    <div class="card">
+                        <img src="/images/Shoe3.avif" class="card-img-top" alt="Red Bull" style="height: 380px;">
+                        <div class="card-body">
+                            <h5 class="card-title">PUMA and Mercedes F1 Enlist Mad Dog Jones for Premium Collection - Releases</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#9827465',78)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card4 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Shoe4.jpeg" class="card-img-top" alt="Aston Martin">
+                        <div class="card-body">
+                            <h5 class="card-title">PUMA Mercedes - AMG Petronas F1 Future Cat OG Unisex Motorsport Shoes Green</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#NHFI99375',18)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card5 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Shoe5.avif" class="card-img-top" alt="McLaren">
+                        <div class="card-body">
+                            <h5 class="card-title">Mercedes - AMG Petronas F1 Team Mens Footwear</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#75783995',10)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card6 -->
+                <div class="col-sm-4 pb-3 text-center">
+                    <div class="card">
+                        <img src="/images/Shoe6.jpeg" class="card-img-top" alt="Haas">
+                        <div class="card-body">
+                            <h5 class="card-title">PUMA Mercedes F1 RS Connect Motorsport Men's Shoes Nrgy Yellow MAPF - Privei</h5>
+                            <button class="btn btn-danger btn-lg" onclick="addToCart('#048746',20)">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>
